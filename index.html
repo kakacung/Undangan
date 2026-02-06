@@ -3,191 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAKA STUDIO</title>
 
-<title>KAKA STUDIO — MUSIC • GAME • COFFEE</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#050505;
-  --panel:#0f0f0f;
-  --text:#f5f5f5;
-  --muted:#888;
-  --accent:#ff4d00;
+  --bg:#040008;
+  --neon:#ff003c;
+  --cyan:#00ffe1;
+  --text:#eaeaea;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Inter,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  background:var(--bg);
+  background:
+    radial-gradient(circle at center, rgba(255,0,60,.15), transparent 60%),
+    #040008;
   color:var(--text);
+  font-family:Inter,sans-serif;
   overflow-x:hidden;
 }
 
-/* FLASH INTRO */
-.intro-flash{
+/* ===== INTRO HIT ===== */
+.intro{
   position:fixed;
   inset:0;
-  background:#fff;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   z-index:9999;
-  animation:flashOut .8s ease forwards;
+  animation:introOut .9s ease forwards;
+  animation-delay:1.4s;
 }
 
-@keyframes flashOut{
-  0%{opacity:1}
-  100%{opacity:0;visibility:hidden}
+@keyframes introOut{
+  to{opacity:0;visibility:hidden}
 }
 
-/* HERO */
+.intro-text{
+  font-family:Orbitron,sans-serif;
+  font-size:2.6rem;
+  font-weight:900;
+  letter-spacing:6px;
+  color:var(--neon);
+  text-shadow:
+    0 0 15px var(--neon),
+    0 0 30px var(--neon);
+  animation:hit .35s ease-out;
+}
+
+@keyframes hit{
+  0%{transform:scale(.7);opacity:0}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
-  background:
-    radial-gradient(circle at center, rgba(255,77,0,.15), transparent 60%),
-    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.98)),
-    url("https://images.unsplash.com/photo-1511379938547-c1f69419868d") center/cover;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:40px;
-  animation:heroZoom .9s ease-out;
-}
-
-@keyframes heroZoom{
-  from{transform:scale(1.15)}
-  to{transform:scale(1)}
 }
 
 .hero h1{
-  font-size:3.6rem;
+  font-family:Orbitron,sans-serif;
+  font-size:3.8rem;
   font-weight:900;
-  letter-spacing:6px;
-  text-shadow:0 0 25px rgba(255,77,0,.6);
-  animation:textHit .7s ease-out;
+  letter-spacing:8px;
+  color:var(--cyan);
+  text-shadow:
+    0 0 20px var(--cyan),
+    6px 6px 0 #000;
 }
 
 .hero span{
-  color:var(--accent);
-}
-
-@keyframes textHit{
-  0%{opacity:0;transform:translateY(40px)}
-  100%{opacity:1;transform:translateY(0)}
+  color:var(--neon);
+  text-shadow:
+    0 0 20px var(--neon),
+    8px 8px 0 #000;
 }
 
 .hero p{
-  margin-top:22px;
-  max-width:760px;
-  color:var(--muted);
+  margin-top:26px;
   font-size:1.1rem;
-  animation:fadeUp 1.2s ease-out;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.btn{
-  display:inline-block;
-  margin-top:36px;
-  padding:16px 40px;
-  border-radius:50px;
-  background:var(--accent);
-  color:#000;
-  font-weight:700;
   letter-spacing:1px;
-  box-shadow:0 0 30px rgba(255,77,0,.6);
+  color:#aaa;
 }
 
-/* SECTION */
+/* ===== SECTION ===== */
 section{
-  padding:100px 10%;
+  padding:120px 10%;
 }
 
-.title h2{
-  font-size:2.5rem;
-  margin-bottom:10px;
-}
-
-.title p{
-  color:var(--muted);
-  max-width:700px;
-}
-
-/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
-  margin-top:50px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:36px;
 }
 
 .card{
-  background:var(--panel);
-  padding:34px;
-  border-radius:22px;
-  border:1px solid rgba(255,77,0,.15);
-  box-shadow:0 0 25px rgba(0,0,0,.6);
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 0 40px rgba(255,77,0,.35);
+  padding:36px;
+  background:rgba(10,10,20,.8);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 30px rgba(255,0,60,.25);
 }
 
 .card h3{
-  margin-bottom:14px;
+  font-family:Orbitron,sans-serif;
+  color:var(--cyan);
+  margin-bottom:12px;
 }
 
 .price{
-  margin-top:12px;
-  color:var(--accent);
-  font-weight:700;
+  margin-top:14px;
+  color:var(--neon);
+  font-family:Orbitron,sans-serif;
 }
 
 /* FOOTER */
 footer{
   padding:40px;
   text-align:center;
-  font-size:.85rem;
-  color:var(--muted);
+  font-size:.8rem;
+  color:#666;
   background:#000;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h1{font-size:2.4rem}
-  section{padding:70px 8%}
 }
 </style>
 </head>
 
 <body>
 
-<div class="intro-flash"></div>
+<!-- INTRO -->
+<div class="intro">
+  <div class="intro-text">KAKA STUDIO</div>
+</div>
 
-<!-- MUSIC -->
-<audio id="bgMusic" loop>
+<!-- MUSIC (GARANG) -->
+<audio id="bgMusic" loop muted>
   <source src="Welcom Kaka Studio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const music = document.getElementById("bgMusic");
-music.volume = 0.35;
+music.volume = 0.45;
 
+/* PAKSA MAIN PAS MASUK */
 window.addEventListener("load", () => {
-  const play = music.play();
-  if (play !== undefined) {
-    play.catch(() => {
+  music.muted = false;
+  const p = music.play();
+  if (p !== undefined) {
+    p.catch(() => {
       document.body.addEventListener("click", () => {
+        music.muted = false;
         music.play();
       }, { once:true });
     });
@@ -199,54 +170,20 @@ window.addEventListener("load", () => {
 <div class="hero">
   <div>
     <h1>KAKA <span>STUDIO</span></h1>
-    <p>
-      Bukan tempat biasa.  
-      Ini markas musik, game, dan kopi.  
-      Masuk sini — mindset lu naik level.
-    </p>
-    <a href="#program" class="btn">MASUK AREA</a>
+    <p>MUSIC • GAME • COFFEE</p>
   </div>
 </div>
 
-<!-- PROGRAM -->
-<section id="program">
-  <div class="title">
-    <h2>APA YANG ADA DI DALAM</h2>
-    <p>
-      Semua dibuat biar lu betah, fokus, dan berkembang.
-    </p>
-  </div>
-
+<!-- CONTENT -->
+<section>
   <div class="grid">
     <div class="card">
-      <h3>KURSUS MUSIK</h3>
-      <p>Drum, gitar, piano, vokal, band.</p>
-      <div class="price">Rp 250K / bulan</div>
+      <h3>MUSIC ROOM</h3>
+      <p>latihan • noise • progres</p>
+      <div class="price">250K / month</div>
     </div>
 
     <div class="card">
-      <h3>STUDIO & JAMMING</h3>
-      <p>Datang. Colok alat. Main.</p>
-      <div class="price">Rp 30K / jam</div>
-    </div>
-
-    <div class="card">
-      <h3>GAME ROOM</h3>
-      <p>Santai tapi kompetitif.</p>
-      <div class="price">Rp 10K / jam</div>
-    </div>
-
-    <div class="card">
-      <h3>COFFEE SPACE</h3>
-      <p>Kopi panas, ide jalan.</p>
-      <div class="price">Mulai Rp 8K</div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 KAKA STUDIO — MUSIC • GAME • COFFEE
-</footer>
-
-</body>
-</html>
+      <h3>STUDIO MODE</h3>
+      <p>datang niat, pulang bawa hasil</p>
+      <div class="price">30K / hour
