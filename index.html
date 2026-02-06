@@ -26,7 +26,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== INTRO HIT ===== */
+/* INTRO */
 .intro{
   position:fixed;
   inset:0;
@@ -35,32 +35,21 @@ body{
   align-items:center;
   justify-content:center;
   z-index:9999;
-  animation:introOut .9s ease forwards;
-  animation-delay:1.4s;
+  animation:introOut 1s ease forwards;
+  animation-delay:1.6s;
 }
-
-@keyframes introOut{
-  to{opacity:0;visibility:hidden}
-}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
 
 .intro-text{
   font-family:Orbitron,sans-serif;
-  font-size:2.6rem;
+  font-size:3rem;
   font-weight:900;
-  letter-spacing:6px;
+  letter-spacing:8px;
   color:var(--neon);
-  text-shadow:
-    0 0 15px var(--neon),
-    0 0 30px var(--neon);
-  animation:hit .35s ease-out;
+  text-shadow:0 0 30px var(--neon);
 }
 
-@keyframes hit{
-  0%{transform:scale(.7);opacity:0}
-  100%{transform:scale(1);opacity:1}
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -71,57 +60,96 @@ body{
 
 .hero h1{
   font-family:Orbitron,sans-serif;
-  font-size:3.8rem;
-  font-weight:900;
-  letter-spacing:8px;
+  font-size:4rem;
+  letter-spacing:10px;
   color:var(--cyan);
-  text-shadow:
-    0 0 20px var(--cyan),
-    6px 6px 0 #000;
+  text-shadow:0 0 25px var(--cyan);
 }
 
 .hero span{
   color:var(--neon);
-  text-shadow:
-    0 0 20px var(--neon),
-    8px 8px 0 #000;
+  text-shadow:0 0 25px var(--neon);
 }
 
 .hero p{
-  margin-top:26px;
-  font-size:1.1rem;
-  letter-spacing:1px;
+  margin-top:20px;
+  letter-spacing:3px;
   color:#aaa;
 }
 
-/* ===== SECTION ===== */
-section{
-  padding:120px 10%;
+/* SECTION */
+section{padding:130px 10%}
+
+/* BUNDLE */
+.bundle{
+  background:rgba(10,10,20,.9);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 60px rgba(255,0,60,.5);
+  padding:70px;
 }
 
-.grid{
+.bundle h2{
+  font-family:Orbitron,sans-serif;
+  font-size:2.8rem;
+  letter-spacing:6px;
+  color:var(--neon);
+  text-shadow:0 0 25px var(--neon);
+}
+
+.bundle p{
+  margin-top:18px;
+  color:#aaa;
+  max-width:800px;
+}
+
+.bundle-grid{
+  margin-top:60px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:36px;
+  gap:34px;
 }
 
-.card{
-  padding:36px;
-  background:rgba(10,10,20,.8);
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 0 30px rgba(255,0,60,.25);
-}
-
-.card h3{
+.bundle-item h3{
   font-family:Orbitron,sans-serif;
   color:var(--cyan);
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
-.price{
-  margin-top:14px;
-  color:var(--neon);
+.bundle-item p{
+  font-size:.95rem;
+  color:#bbb;
+}
+
+/* PRICE */
+.bundle-price{
+  margin-top:60px;
   font-family:Orbitron,sans-serif;
+  font-size:2.6rem;
+  color:var(--neon);
+  text-shadow:0 0 30px var(--neon);
+}
+
+.bundle-note{
+  margin-top:14px;
+  font-size:.9rem;
+  color:#777;
+}
+
+/* CTA */
+.cta{
+  margin-top:60px;
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  padding:22px 60px;
+  font-family:Orbitron,sans-serif;
+  letter-spacing:4px;
+  font-weight:700;
+  color:#000;
+  background:linear-gradient(90deg,var(--cyan),var(--neon));
+  box-shadow:0 0 45px rgba(255,0,60,.8);
 }
 
 /* FOOTER */
@@ -142,25 +170,24 @@ footer{
   <div class="intro-text">KAKA STUDIO</div>
 </div>
 
-<!-- MUSIC (GARANG) -->
+<!-- MUSIC -->
 <audio id="bgMusic" loop muted>
   <source src="Welcom Kaka Studio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const music = document.getElementById("bgMusic");
-music.volume = 0.45;
+const music=document.getElementById("bgMusic");
+music.volume=0.5;
 
-/* PAKSA MAIN PAS MASUK */
-window.addEventListener("load", () => {
-  music.muted = false;
-  const p = music.play();
-  if (p !== undefined) {
-    p.catch(() => {
-      document.body.addEventListener("click", () => {
-        music.muted = false;
+window.addEventListener("load",()=>{
+  music.muted=false;
+  const play=music.play();
+  if(play!==undefined){
+    play.catch(()=>{
+      document.body.addEventListener("click",()=>{
+        music.muted=false;
         music.play();
-      }, { once:true });
+      },{once:true});
     });
   }
 });
@@ -174,16 +201,56 @@ window.addEventListener("load", () => {
   </div>
 </div>
 
-<!-- CONTENT -->
-<section>
-  <div class="grid">
-    <div class="card">
-      <h3>MUSIC ROOM</h3>
-      <p>latihan • noise • progres</p>
-      <div class="price">250K / month</div>
+<!-- ALL IN ONE BUNDLE -->
+<section id="bundle">
+  <div class="bundle">
+    <h2>ALL IN ONE BUNDLE</h2>
+    <p>
+      Satu paket neraka.  
+      Masuk – main – rekam – manggung – ngopi – pulang bawa nama.
+    </p>
+
+    <div class="bundle-grid">
+      <div class="bundle-item">
+        <h3>MUSIC</h3>
+        <p>Kursus musik • rental alat • recording track • live music • band call-out</p>
+      </div>
+      <div class="bundle-item">
+        <h3>CONTENT</h3>
+        <p>Produksi lagu • video clip • dokumentasi live • promo konten</p>
+      </div>
+      <div class="bundle-item">
+        <h3>ENTERTAIN</h3>
+        <p>Karaoke room • game room • nongkrong bebas</p>
+      </div>
+      <div class="bundle-item">
+        <h3>EVENT</h3>
+        <p>Festival • parade musik • akustik café • panggilan band luar</p>
+      </div>
+      <div class="bundle-item">
+        <h3>COFFEE</h3>
+        <p>Kopi • minuman • basecamp nongkrong</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>STUDIO MODE</h3>
-      <p>datang niat, pulang bawa hasil</p>
-      <div class="price">30K / hour
+    <div class="bundle-price">
+      Rp 1.500.000 / SESSION
+    </div>
+    <div class="bundle-note">
+      *Harga bisa naik tergantung skala event & durasi
+    </div>
+
+    <div class="cta">
+      <a href="https://wa.me/62XXXXXXXXXX?text=BOOKING%20ALL%20IN%20ONE%20BUNDLE%20KAKA%20STUDIO" target="_blank">
+        BOOK NOW
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+© 2026 KAKA STUDIO — MUSIC • GAME • COFFEE
+</footer>
+
+</body>
+</html>
