@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KAKA STUDIO — Creative Music, Game & Coffee Space</title>
-<meta name="description" content="KAKA Studio adalah creative space: kursus musik, studio jamming, game room & coffee. Tempat berkembang, bukan sekadar nongkrong.">
+<title>KAKA STUDIO — Ruang Musik, Game & Kopi</title>
+<meta name="description" content="KAKA Studio adalah ruang kreatif untuk belajar musik, jamming, main game, dan nongkrong. Bukan cuma tempat main, tapi tempat berkembang.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= THEME ================= */
 :root{
   --bg:#0b0b0d;
   --panel:#151519;
@@ -26,25 +25,25 @@
 }
 
 [data-theme="light"]{
-  --bg:#f4f4f4;
+  --bg:#f2f2f2;
   --panel:#ffffff;
   --text:#111;
   --muted:#555;
   --accent:#111;
 }
 
-/* ================= BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+
 body{
   background:var(--bg);
   color:var(--text);
-  line-height:1.75;
+  line-height:1.8;
   transition:.4s;
 }
 
 a{text-decoration:none;color:inherit}
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   background:
@@ -66,32 +65,40 @@ a{text-decoration:none;color:inherit}
 .hero span{color:var(--accent)}
 
 .hero p{
-  margin-top:20px;
+  margin-top:22px;
   max-width:760px;
   color:var(--muted);
+  font-size:1.05rem;
 }
 
 .btn{
   display:inline-block;
-  margin:10px;
-  padding:14px 32px;
+  margin:12px;
+  padding:14px 34px;
   border-radius:40px;
   background:var(--accent);
   color:#000;
   font-weight:600;
 }
 
-/* ================= SECTION ================= */
+/* SECTION */
 section{padding:100px 10%}
 
 .title{
   margin-bottom:50px;
 }
 
-.title h2{font-size:2.2rem}
-.title p{color:var(--muted);max-width:650px}
+.title h2{
+  font-size:2.3rem;
+  margin-bottom:10px;
+}
 
-/* ================= GRID ================= */
+.title p{
+  color:var(--muted);
+  max-width:700px;
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -100,16 +107,22 @@ section{padding:100px 10%}
 
 .card{
   background:var(--panel);
-  padding:30px;
-  border-radius:20px;
+  padding:32px;
+  border-radius:22px;
   transition:.3s;
 }
 
 .card:hover{transform:translateY(-6px)}
 
-.price{margin-top:10px;color:var(--accent);font-weight:600}
+.card h3{margin-bottom:12px}
 
-/* ================= MUSIC ================= */
+.price{
+  margin-top:12px;
+  color:var(--accent);
+  font-weight:600;
+}
+
+/* CONTROL */
 .music-btn,.theme-btn{
   position:fixed;
   right:25px;
@@ -125,7 +138,7 @@ section{padding:100px 10%}
 .music-btn{bottom:25px}
 .theme-btn{bottom:70px}
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   padding:40px;
   text-align:center;
@@ -134,7 +147,6 @@ footer{
   background:#000;
 }
 
-/* ================= MOBILE ================= */
 @media(max-width:768px){
   .hero h1{font-size:2.2rem}
   section{padding:70px 8%}
@@ -149,8 +161,8 @@ footer{
   <source src="https://raw.githubusercontent.com/USERNAME/REPO/main/music/bg-music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-btn" onclick="toggleMusic()">Music</div>
-<div class="theme-btn" onclick="switchTheme()">Theme</div>
+<div class="music-btn" onclick="toggleMusic()">Musik</div>
+<div class="theme-btn" onclick="switchTheme()">Tema</div>
 
 <script>
 const music=document.getElementById("bgMusic");
@@ -178,69 +190,100 @@ function switchTheme(){
   <div>
     <h1>KAKA <span>STUDIO</span></h1>
     <p>
-      A creative space for music education, studio sessions, gaming,
-      and community. Built for consistency, not hype.
+      Ini bukan sekadar tempat nongkrong.  
+      Ini ruang buat belajar musik, main bareng, ngopi santai,
+      dan pelan-pelan naik level.
     </p>
-    <a href="#program" class="btn">Explore</a>
+    <a href="#program" class="btn">Lihat Program</a>
   </div>
 </div>
 
 <!-- PROGRAM -->
 <section id="program">
   <div class="title">
-    <h2>What We Do</h2>
-    <p>Integrated space for learning, playing, and creating.</p>
+    <h2>Apa yang Bisa Kamu Lakuin di Sini</h2>
+    <p>
+      Semua disiapkan buat satu tujuan:  
+      bikin kamu nyaman, konsisten, dan berkembang.
+    </p>
   </div>
 
   <div class="grid">
     <div class="card">
-      <h3>Music Course</h3>
-      <p>Drum, Guitar, Piano, Vocal, Band Class</p>
-      <div class="price">From Rp 250K / month</div>
+      <h3>Kursus Musik</h3>
+      <p>
+        Drum, gitar, piano, vokal, sampai kelas band.  
+        Cocok buat pemula sampai yang mau serius.
+      </p>
+      <div class="price">Mulai Rp 250K / bulan</div>
     </div>
+
     <div class="card">
       <h3>Studio & Jamming</h3>
-      <p>Practice & live recording session</p>
-      <div class="price">Rp 30K / hour</div>
+      <p>
+        Ruang latihan nyaman.  
+        Datang, colok alat, main tanpa ribet.
+      </p>
+      <div class="price">Rp 30K / jam</div>
     </div>
+
     <div class="card">
       <h3>Game Room</h3>
-      <p>Console gaming & casual play</p>
-      <div class="price">Rp 10K / hour</div>
+      <p>
+        Main buat senang-senang,  
+        kalah menang tetap ketawa.
+      </p>
+      <div class="price">Rp 10K / jam</div>
     </div>
+
     <div class="card">
       <h3>Coffee Space</h3>
-      <p>Drinks, snacks & relaxed atmosphere</p>
-      <div class="price">From Rp 8K</div>
+      <p>
+        Ngopi santai, nunggu kelas,  
+        atau ngobrol sambil denger musik.
+      </p>
+      <div class="price">Mulai Rp 8K</div>
     </div>
   </div>
 </section>
 
-<!-- VISION -->
+<!-- VISI -->
 <section>
   <div class="title">
-    <h2>Why KAKA Studio</h2>
-    <p>We focus on growth, discipline, and collaboration.</p>
+    <h2>Kenapa KAKA Studio?</h2>
+    <p>
+      Karena tempat yang baik bukan yang paling rame,
+      tapi yang bikin kamu pengen balik lagi.
+    </p>
   </div>
 
   <div class="grid">
     <div class="card">
-      <h3>Structured Learning</h3>
-      <p>Clear curriculum, real progress.</p>
+      <h3>Belajar Tanpa Tekanan</h3>
+      <p>
+        Gak harus jago dulu.  
+        Yang penting mulai dan konsisten.
+      </p>
     </div>
+
     <div class="card">
-      <h3>Creative Community</h3>
-      <p>Meet people, build projects.</p>
+      <h3>Lingkungan Sehat</h3>
+      <p>
+        Ketemu orang yang sama-sama mau berkembang.
+      </p>
     </div>
+
     <div class="card">
-      <h3>Flexible Space</h3>
-      <p>From practice to performance.</p>
+      <h3>Ruang yang Fleksibel</h3>
+      <p>
+        Mau latihan, nongkrong, atau bikin karya — bisa.
+      </p>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 KAKA STUDIO — Creative Music & Game Space
+  © 2026 KAKA STUDIO — Ruang Musik, Game & Kopi
 </footer>
 
 </body>
